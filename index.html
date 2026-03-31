@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Project</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .vault-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .vault-icon {
+      font-size: 64px;
+      position: relative;
+    }
+    .vault-lock {
+      position: absolute;
+      top: 10px;
+      right: -10px;
+      font-size: 24px;
+    }
+    .vault-amount {
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--navy, #001f3f);
+      font-family: 'DM Mono', monospace;
+    }
+
+    .status {
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+    .st-wait {
+      background-color: #fff3cd;
+      color: #856404;
+    }
+    .Disputed {
+      border: 2px solid #ffc107;
+    }
+
+    .olx-sim {
+      border: 1px dashed var(--muted, #888);
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 12px;
+      color: var(--muted, #888);
+    }
+    .olx-sim img {
+      height: 20px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="vault-visual">
+    <div class="vault-icon">🏦<span class="vault-lock">🔒</span></div>
+    <div class="vault-amount" id="ev2-vault">500 000 so'm</div>
+  </div>
+
+  <div id="status-container">
+    <div id="s3st" class="status st-wait">Holat: Kutmoqda</div>
+    <div id="p3d">Xaridor hali hech qanday ariza bermadi.</div>
+    <button id="cbtn" onclick="openDispute()">Nizoni ochish</button>
+  </div>
+
+  <div class="olx-sim">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/OLX_Logo.svg" alt="OLX">
+    Simulyatsiya: OLX e'loni ichida TrustPay tugmasi
+  </div>
+
+  <script>
+    function openDispute() {
+      document.getElementById('s3st').innerText = "Holat: Nizo ochildi, arbitraj kutilmoqda";
+      document.getElementById('s3st').parentNode.className = "status st-wait Disputed";
+      document.getElementById('p3d').innerText = "Xaridor muammo borligini bildirdi. Arbitraj markazi video-dalillarni tekshirmoqda. Pul muzlatilgan holatda qoladi.";
+      document.getElementById('cbtn').disabled = true;
+      alert("Nizo muvaffaqiyatli ochildi. Arbitraj tekshiruvi boshlandi.");
+    }
+  </script>
+
+</body>
+</html>
